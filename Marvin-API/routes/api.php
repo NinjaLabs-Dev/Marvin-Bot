@@ -13,6 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/bots/info', function (Request $request) {
-    return $request->user();
-});
+Route::get('info', 'info@APIControl');
