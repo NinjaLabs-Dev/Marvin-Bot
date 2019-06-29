@@ -13,4 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('info', 'info@APIControl');
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::post('{id}/welcome', function ($id) {
+    $result = DB::select('select welcome, channel from memberupdate where id = ?', array($id));
+    return $result;
+});
+
+Route::post('{id}/leave', function ($id) {
+    $result = DB::select('select goodbye, channel from memberupdate where id = ?', array($id));
+    return $result;
+});
